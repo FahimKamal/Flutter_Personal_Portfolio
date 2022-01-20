@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_profile/models/Project.dart';
+import 'package:flutter_profile/responsive.dart';
 
 import '../../../constants.dart';
 
@@ -17,23 +18,42 @@ class MyProjects extends StatelessWidget {
           style: Theme.of(context).textTheme.headline6,
         ),
         SizedBox(height: defaultPadding,),
-        GridView.builder(
-            shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: 1.3,
-              crossAxisCount: 3,
-              crossAxisSpacing: defaultPadding,
-              mainAxisSpacing: defaultPadding,
-            ),
-            itemCount: demo_projects.length,
-            itemBuilder: (context, index){
-              return ProjectCard(
-                project: demo_projects[index],
-              );
-            }
+        Responsive(
+          mobile: ProjectGridView(crossAxisCount: 1, childAspectRatio: 1.7,),
+          mobileLarge: ProjectGridView(crossAxisCount: 2),
+          tablet: ProjectGridView(childAspectRatio: 1.1),
+          desktop: ProjectGridView(),
         )
       ],
+    );
+  }
+}
+
+class ProjectGridView extends StatelessWidget {
+  const ProjectGridView({
+    Key? key, this.crossAxisCount = 3, this.childAspectRatio = 1.3,
+  }) : super(key: key);
+
+  final int crossAxisCount;
+  final double childAspectRatio;
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+        shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          childAspectRatio: childAspectRatio,
+          crossAxisCount: crossAxisCount,
+          crossAxisSpacing: defaultPadding,
+          mainAxisSpacing: defaultPadding,
+        ),
+        itemCount: demo_projects.length,
+        itemBuilder: (context, index){
+          return ProjectCard(
+            project: demo_projects[index],
+          );
+        }
     );
   }
 }
@@ -48,7 +68,7 @@ class ProjectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(defaultPadding),
+      padding: EdgeInsets.all(defaultPadding * 0.66),
       color: secondaryColor,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,7 +80,7 @@ class ProjectCard extends StatelessWidget {
           ),
           Spacer(),
           Text(project.description!,
-            maxLines: 4,
+            maxLines: Responsive.isMobileLarge(context)? 3 : 4,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(height: 1.5),
           ),
