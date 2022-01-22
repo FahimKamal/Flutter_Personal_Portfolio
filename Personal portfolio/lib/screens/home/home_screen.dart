@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_profile/responsive.dart';
 import 'package:flutter_profile/screens/main/main_screen.dart';
 
 import 'components/highlights.dart';
