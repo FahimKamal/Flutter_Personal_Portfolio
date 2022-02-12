@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_profile/models/Project.dart';
 import 'package:flutter_profile/responsive.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../constants.dart';
 
@@ -86,7 +87,9 @@ class ProjectCard extends StatelessWidget {
           ),
           Spacer(),
           TextButton(
-              onPressed: (){},
+              onPressed: () async {
+                await launch(project.gitLink!);
+              },
               child: Text("Read More >>",
                 style: TextStyle(color: primaryColor),)
           )
