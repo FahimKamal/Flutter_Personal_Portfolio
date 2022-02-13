@@ -72,14 +72,18 @@ class SideMenu extends StatelessWidget {
                               icon: SvgPicture.asset("assets/icons/github.svg")
                           ),
                           IconButton(
-                              onPressed: (){},
-                              tooltip: 'Twitter Profile',
-                              icon: SvgPicture.asset("assets/icons/twitter.svg")
+                              onPressed: () async {
+                                await launch('https://www.facebook.com/fahimkamal63/');
+                              },
+                              tooltip: 'Facebook Profile',
+                              icon: Container( width: 20,child: Image.asset("assets/icons/facebook.png", color: Colors.grey[600],)),
                           ),
                           IconButton(
-                              onPressed: (){},
-                              tooltip: 'Dribble Profile',
-                              icon: SvgPicture.asset("assets/icons/dribble.svg")
+                              onPressed:  () async {
+                                await launch('https://www.instagram.com/fahimkamal63/');
+                              },
+                              tooltip: 'Instagram Profile',
+                              icon: Container( width: 20,child: Image.asset("assets/icons/instagram.png", color: Colors.grey[600],)),
                           ),
                         ],
                       ),
