@@ -10,7 +10,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,7 +18,6 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       title: 'Personal Portfolio',
-      // we are using dark theme and we modify it as our need
       theme: ThemeData.dark().copyWith(
         primaryColor: primaryColor,
         scaffoldBackgroundColor: bgColor,

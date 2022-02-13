@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_profile/constants.dart';
 import 'package:flutter_profile/screens/main/components/skills.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'area_info_text.dart';
 import 'coding.dart';
 import 'knowledge.dart';
@@ -34,7 +35,9 @@ class SideMenu extends StatelessWidget {
                     Divider(),
                     SizedBox(height: defaultPadding,),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        await launch('https://github.com/FahimKamal/Flutter_Personal_Portfolio/raw/main/Personal%20portfolio/CV-Fahim-Kamal-Ahmed.pdf');
+                      },
                       child: FittedBox(
                         child: Row(
                           children: [
@@ -55,12 +58,16 @@ class SideMenu extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           IconButton(
-                            onPressed: (){},
+                            onPressed: () async {
+                              await launch('https://www.linkedin.com/in/fahim-kamal-ahmed-3a80a4161/');
+                            },
                               tooltip: "Linkedin Profile",
                             icon: SvgPicture.asset("assets/icons/linkedin.svg")
                           ),
                           IconButton(
-                              onPressed: (){},
+                              onPressed: () async {
+                                await launch('https://github.com/FahimKamal');
+                              },
                               tooltip: "Github Profile",
                               icon: SvgPicture.asset("assets/icons/github.svg")
                           ),
