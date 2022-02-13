@@ -1,5 +1,5 @@
 # Flutter_Personal_Portfolio
-My personal portfolio project using Flutter.
+My personal portfolio project using Flutter. Fully responsive UI. Run on both mobile and web.
 
 <div align="center">
 <img src="Personal portfolio\samples\Personal Portfolio web sample.jpg" style="width: 100%"></img>
