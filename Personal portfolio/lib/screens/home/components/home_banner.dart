@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_profile/responsive.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../constants.dart';
 
@@ -45,7 +46,9 @@ class HomeBanner extends StatelessWidget {
                 MyBuildAnimatedText(),
                 SizedBox(height: defaultPadding),
                 if(!Responsive.isMobileLarge(context)) ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      await launch('https://github.com/FahimKamal');
+                    },
                     style: TextButton.styleFrom(
                         backgroundColor: primaryColor,
                         padding: EdgeInsets.symmetric(

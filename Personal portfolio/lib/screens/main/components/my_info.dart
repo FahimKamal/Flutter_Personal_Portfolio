@@ -18,7 +18,7 @@ class MyInfo extends StatelessWidget {
             Spacer(flex: 2,),
             CircleAvatar(
               radius: 50,
-              backgroundImage: AssetImage("assets/images/Profile-pic.jpg"),
+              backgroundImage: AssetImage("assets/images/ProfilePicture.jpg"),
             ),
             Spacer(),
             Text("Fahim Kamal Ahmed", style: Theme.of(context).textTheme.subtitle2,),
